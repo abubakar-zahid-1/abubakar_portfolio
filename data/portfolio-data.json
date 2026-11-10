@@ -1,0 +1,343 @@
+{
+  "personal": {
+    "name": "Abubakar Z.",
+    "roleTitles": [
+      "Digital Marketing Executive",
+      "Lead SEO & Organic Growth Strategist",
+      "Performance Marketing Team Lead",
+      "B2B Lead Generation Specialist",
+      "AI Workflow & Automation Architect"
+    ],
+    "email": "abubakar.careers@gmail.com",
+    "location": "Jallo, Batapur, Lahore, Punjab, Pakistan",
+    "linkedIn": "https://www.linkedin.com/in/abubakar-z-6173a5324/",
+    "bio": "I am a results-driven Digital Marketing Executive with hands-on experience in SEO, content optimization, lead generation, WordPress management, and AI-powered marketing workflows. Proven ability to increase organic traffic by up to 40% and improve brand visibility by 70-90% through data-driven strategies and community marketing. My expertise includes building targeted prospect lists, managing CRM pipelines, and leveraging AI tools like ChatGPT, Claude, and Gemini to optimize business growth and acquire high-quality B2B prospects.",
+    "heroPhoto": "/assets/img/hero-avatar.jpg",
+    "aboutPhoto": "/assets/img/about-photo.jpg",
+    "resumePath": "/assets/docs/Abubakar_Z_Resume.pdf"
+  },
+  "stats": [
+    {
+      "label": "Years Experience",
+      "value": 2,
+      "suffix": "+"
+    },
+    {
+      "label": "Campaigns Executed",
+      "value": 15,
+      "suffix": "+"
+    },
+    {
+      "label": "Organic Traffic Lift",
+      "value": 40,
+      "suffix": "%"
+    },
+    {
+      "label": "Happy Clients & Partners",
+      "value": 20,
+      "suffix": "+"
+    }
+  ],
+  "services": [
+    {
+      "id": "seo-growth",
+      "title": "SEO & Organic Growth",
+      "icon": "fa-search",
+      "shortDesc": "End-to-end SEO initiatives including technical audits, keyword research, on-page optimization, and SERP dominance.",
+      "fullDesc": "Comprehensive SEO campaigns that scale organic reach. By conducting thorough competitor analysis, content gap identification, schema markup, and executing data-driven technical fixes, I have consistently driven 25-40% organic traffic growth across competitive niches.",
+      "deliverables": [
+        "In-depth Technical SEO Audits & Core Web Vitals Fixes",
+        "Competitor Keyword Gap & Intent Mapping (Ahrefs & SEMrush)",
+        "On-Page Optimization, Meta Taxonomies & Schema Architecture",
+        "AEO (Answer Engine Optimization) & Entity-based Topical Authority",
+        "Google Analytics 4 (GA4) & Search Console Performance Tracking"
+      ]
+    },
+    {
+      "id": "b2b-lead-gen",
+      "title": "B2B Lead Generation & Outreach",
+      "icon": "fa-bullseye",
+      "shortDesc": "Multi-channel B2B lead generation campaigns targeting high-converting decision-makers.",
+      "fullDesc": "End-to-end prospecting and outbound strategy. Using LinkedIn Sales Navigator, Apollo.io, SalesQL, and modern CRM pipelines, I build hyper-targeted prospect databases. With rigorous A/B tested copy, I have reduced bounce rates by 60-70% and improved response rates by 30-40%.",
+      "deliverables": [
+        "High-Intent ICP & Prospect List Building (Apollo & SalesQL)",
+        "LinkedIn Sales Navigator Outreach & Connection Cadences",
+        "Cold Email Sequences with A/B Subject & Body Testing",
+        "Deliverability Optimization & Spam Protection (60-70% Bounce Cut)",
+        "CRM Pipeline Setup, Lead Scoring & Opportunity Tracking"
+      ]
+    },
+    {
+      "id": "wordpress-ops",
+      "title": "WordPress Content Operations",
+      "icon": "fa-wordpress-simple",
+      "shortDesc": "Comprehensive management of WordPress sites, large product catalogues, and SEO content formatting.",
+      "fullDesc": "Structuring, publishing, and scaling WordPress digital assets. From managing e-commerce product pages and taxonomies to structuring FAQs, interlinking hubs, and editorial workflows, I ensure seamless user experience and maximum crawl efficiency.",
+      "deliverables": [
+        "Product Catalogues, Categories, Tags & Custom Fields Management",
+        "Structured Schema Markup for Products & FAQ Rich Snippets",
+        "Content Calendar Execution, Outlines & Editorial Quality SOPs",
+        "Strategic Internal Link Siloing & Click-Depth Optimization",
+        "Fast Page Speed & Mobile Responsiveness Tuning"
+      ]
+    },
+    {
+      "id": "ai-workflows",
+      "title": "AI-Powered Marketing Workflows",
+      "icon": "fa-brain",
+      "shortDesc": "Integrating state-of-the-art LLMs (Claude, GPT, Gemini) to supercharge marketing velocity and ROI.",
+      "fullDesc": "Custom AI prompt architectures and automated workflow pipelines. Leveraging Claude 3.7/3.5, ChatGPT, and Gemini to automate content brief generation, competitor intelligence analysis, data cleaning, and personalized outreach drafts at scale.",
+      "deliverables": [
+        "Custom Prompt Engineering for High-Converting Copy",
+        "Automated Content Brief Generation & SERP Analysis",
+        "AI-Powered Prospect Enrichment & Data Formatting",
+        "Accelerated Research & Market Intelligence Reports",
+        "Prompt Libraries & Team Automation SOPs"
+      ]
+    },
+    {
+      "id": "community-marketing",
+      "title": "Brand Authority & Quora Marketing",
+      "icon": "fa-quora",
+      "shortDesc": "High-authority community marketing strategies generating qualified referral traffic and trust.",
+      "fullDesc": "Targeted presence on high-intent knowledge platforms like Quora and Reddit. Crafting expert-level, problem-solving answers that rank in Google search results, driving sustained 70-90% visibility increases and converting warm referral visitors into leads.",
+      "deliverables": [
+        "High-Traffic Question Mining with Search Volume Intent",
+        "Thought Leadership & Brand Storytelling Answers",
+        "Strategic Anchor Links & Referral Funnel Construction",
+        "Reputation Monitoring & Brand Sentiment Elevation",
+        "Up to 80-90% Visibility & Reach Growth"
+      ]
+    },
+    {
+      "id": "automation-bots",
+      "title": "Marketing Automation & Custom Bots",
+      "icon": "fa-robot",
+      "shortDesc": "Bespoke scraping, automation scripts, and workflow bots built for zero-cost operation.",
+      "fullDesc": "Engineered customized automation solutions, including a multi-profile Quora interaction bot that mimics genuine human behavior (upvoting/downvoting) while bypassing Cloudflare bot protections—achieving zero API expenses and zero overhead for business campaigns.",
+      "deliverables": [
+        "Cloudflare-Bypassing Automation Systems",
+        "Multi-Profile Session & Cookie Management",
+        "Zero-API-Cost Architectural Design",
+        "Automated Data Scraping & Prospect Extraction",
+        "Resilient, Headless Browser Scripting"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "SEO & Technical (Ahrefs, SEMrush, GA4, On-Page)",
+      "level": 95
+    },
+    {
+      "name": "Lead Generation & CRM (Apollo, SalesQL, Sales Nav)",
+      "level": 90
+    },
+    {
+      "name": "AI Tools & Prompt Engineering (ChatGPT, Claude, Gemini)",
+      "level": 90
+    },
+    {
+      "name": "Leadership, SOPs & Team Coaching",
+      "level": 90
+    },
+    {
+      "name": "WordPress Catalogue Ops & Content Silos",
+      "level": 85
+    },
+    {
+      "name": "Automation, Python Scripting & Growth Hacking",
+      "level": 85
+    }
+  ],
+  "projects": [
+    {
+      "id": "cert-empire-seo",
+      "title": "Cert Empire & Cert Mage Organic Scale",
+      "category": "SEO & Digital Marketing",
+      "filter": "seo",
+      "image": "/assets/img/project-seo.svg",
+      "summary": "Led complete technical SEO audits, keyword gap analysis, and content strategy resulting in a 40% organic traffic surge and top-ranking keywords in competitive certification niches.",
+      "metrics": [
+        "+40% Organic Traffic Growth",
+        "Top 3 SERP Placements",
+        "25+ High-Intent Keywords Ranked"
+      ],
+      "tools": [
+        "Ahrefs",
+        "SEMrush",
+        "Google Search Console",
+        "GA4",
+        "WordPress"
+      ]
+    },
+    {
+      "id": "it-staffing-leadgen",
+      "title": "IT & Staffing Client Outreach Pipeline",
+      "category": "B2B Lead Generation",
+      "filter": "leadgen",
+      "image": "/assets/img/project-leadgen.svg",
+      "summary": "Engineered prospect database systems and personalized cold outreach cadences targeting US/global IT and staffing clients. Utilized A/B testing to cut bounce rates by 60-70% and elevate conversion by 30-40%.",
+      "metrics": [
+        "60-70% Email Bounce Reduction",
+        "30-40% Performance Lift",
+        "Thousands of Verified B2B Leads"
+      ],
+      "tools": [
+        "Apollo.io",
+        "SalesQL",
+        "LinkedIn Sales Navigator",
+        "CRM Platforms"
+      ]
+    },
+    {
+      "id": "quora-marketing-growth",
+      "title": "Quora Brand Authority & Referral Engine",
+      "category": "Brand Authority",
+      "filter": "growth",
+      "image": "/assets/img/project-quora.svg",
+      "summary": "Formulated a knowledge-base community marketing initiative on Quora, publishing value-packed answers that elevated brand visibility by 80% and channeled qualified organic referral buyers.",
+      "metrics": [
+        "80% Brand Visibility Increase",
+        "High Referral Conversion",
+        "Dominant Organic Search Footprint"
+      ],
+      "tools": [
+        "Quora",
+        "Content Strategy",
+        "SERP Answering",
+        "Google Analytics"
+      ]
+    },
+    {
+      "id": "quora-automation-bot",
+      "title": "Cloudflare-Bypass Quora Automation Bot",
+      "category": "Automation & Bots",
+      "filter": "automation",
+      "image": "/assets/img/project-bot.svg",
+      "summary": "Engineered an intelligent automation bot capable of multi-profile session management, automated upvoting, and downvoting with human-like randomness. Seamlessly bypasses Cloudflare security at zero API cost.",
+      "metrics": [
+        "Zero API Cost Overhead",
+        "Cloudflare Shield Bypass",
+        "100% Automated Multi-Account Engine"
+      ],
+      "tools": [
+        "Python",
+        "Headless Automation",
+        "Session Spoofing",
+        "Anti-Detect"
+      ]
+    },
+    {
+      "id": "wordpress-catalogue-ops",
+      "title": "Enterprise WordPress Catalogue Architecture",
+      "category": "Content Operations",
+      "filter": "seo",
+      "image": "/assets/img/project-wordpress.svg",
+      "summary": "Standardized and restructured e-commerce and product pages, tags, taxonomies, and FAQ schema across enterprise WordPress installations, multiplying indexation rates.",
+      "metrics": [
+        "Hundreds of Products Structured",
+        "Rich Snippets Enabled",
+        "Streamlined Editorial SOPs"
+      ],
+      "tools": [
+        "WordPress",
+        "Yoast / RankMath",
+        "Schema Pro",
+        "HTML/CSS"
+      ]
+    },
+    {
+      "id": "ai-marketing-workflows",
+      "title": "Autonomous AI Marketing Engine",
+      "category": "AI & Workflows",
+      "filter": "automation",
+      "image": "/assets/img/project-ai.svg",
+      "summary": "Integrated Claude, GPT-4, and Gemini into daily marketing workflows—automating competitor intelligence, generating data-backed content outlines, and personalizing outreach drafts at scale.",
+      "metrics": [
+        "4x Faster Brief Generation",
+        "Enhanced Content Quality",
+        "Scalable Outbound Pipeline"
+      ],
+      "tools": [
+        "Claude 3.7/3.5",
+        "ChatGPT",
+        "Gemini",
+        "Prompt Engineering"
+      ]
+    },
+    {
+      "id": "snake-battle-royale",
+      "title": "Snake Battle Royale — Real-Time Multiplayer Web Game",
+      "category": "Web App & Realtime Systems",
+      "filter": "automation",
+      "image": "/assets/img/project-bot.svg",
+      "summary": "Engineered a real-time multiplayer browser game using HTML5 Canvas, JavaScript, and Ably Realtime WebSockets. Features live synchronized rooms and low-latency matchmaking across separate devices.",
+      "metrics": [
+        "Real-Time Multi-Device Play",
+        "Ably WebSockets Sync",
+        "Live on Netlify"
+      ],
+      "tools": [
+        "JavaScript",
+        "HTML5 Canvas",
+        "Ably WebSockets",
+        "Netlify"
+      ],
+      "liveUrl": "https://gameabubakar.netlify.app/"
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "Abubakar's data-driven approach to SEO and lead generation significantly scaled our organic traffic and improved our client acquisition pipeline. His ability to execute technical audits and manage complex campaigns is exceptional.",
+      "author": "Management Team",
+      "role": "Keenly Digital",
+      "avatar": "/assets/img/testimonial-1.jpg"
+    },
+    {
+      "quote": "His lead generation strategies using Apollo and LinkedIn Sales Navigator brought in consistent, high-quality B2B prospects. The A/B email tests drastically brought down bounce rates and doubled our responses.",
+      "author": "Business Development Lead",
+      "role": "Employ Scout",
+      "avatar": "/assets/img/testimonial-2.jpg"
+    },
+    {
+      "quote": "Abubakar combines technical digital marketing with innovative problem solving—from building custom automation tools to optimizing WordPress workflows. He is a tremendous asset to any growth team.",
+      "author": "Growth Director",
+      "role": "East Hire",
+      "avatar": "/assets/img/testimonial-3.jpg"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Keenly Digital",
+      "role": "Digital Marketing Executive",
+      "period": "Jan 2025 - Present",
+      "location": "Lahore, Pakistan",
+      "points": [
+        "Led SEO initiatives for Cert Empire and Cert Mage via keyword research, competitor analysis, technical audits, and content strategy.",
+        "Increased organic traffic by 40% and elevated keyword rankings across competitive niches.",
+        "Led Quora marketing initiatives, increasing visibility and engagement by 80% while driving qualified referral traffic."
+      ]
+    },
+    {
+      "company": "Employ Scout",
+      "role": "Business Development Executive",
+      "period": "Oct 2024 - Jan 2025",
+      "location": "Lahore, Pakistan",
+      "points": [
+        "Generated qualified B2B leads through LinkedIn Sales Navigator, Apollo, SalesQL, and CRM platforms.",
+        "Built targeted prospect lists, executed outbound campaigns, and bolstered client acquisition metrics."
+      ]
+    },
+    {
+      "company": "East Hire",
+      "role": "Lead Generation Specialist",
+      "period": "Nov 2023 - Nov 2024",
+      "location": "Lahore, Pakistan",
+      "points": [
+        "Executed multi-channel lead generation campaigns resulting in 30-40% performance improvement.",
+        "Managed prospect databases, cut email bounce rates by 60-70%, and crafted A/B tested outreach sequences."
+      ]
+    }
+  ]
+}

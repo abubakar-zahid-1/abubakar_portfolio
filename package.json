@@ -1,0 +1,14 @@
+{
+  "name": "abubakar-portfolio",
+  "version": "1.0.0",
+  "description": "Personal Portfolio & Digital Marketing Showcase for Abubakar Z. (Selfer Clone)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}

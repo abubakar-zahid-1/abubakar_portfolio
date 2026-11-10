@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="botGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1923"/>
+      <stop offset="100%" stop-color="#080c10"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#botGrad)"/>
+  
+  <!-- Terminal Window Mockup -->
+  <rect x="80" y="150" width="640" height="370" rx="12" fill="#141e2b" stroke="#ff5722" stroke-width="1.5"/>
+  <rect x="80" y="150" width="640" height="40" rx="12" fill="#1b283a"/>
+  <circle cx="110" cy="170" r="6" fill="#ff5252"/>
+  <circle cx="130" cy="170" r="6" fill="#ffb142"/>
+  <circle cx="150" cy="170" r="6" fill="#2ed573"/>
+  <text x="175" y="175" fill="#8892b0" font-family="monospace" font-size="13">quora_automation_engine.py</text>
+
+  <!-- Terminal text -->
+  <text x="110" y="230" fill="#2ed573" font-family="monospace" font-size="15">$ python3 bot_core.py --profiles=multi --bypass=cf-v2</text>
+  <text x="110" y="265" fill="#70a1ff" font-family="monospace" font-size="14">[INFO] Initializing headless stealth browser pool...</text>
+  <text x="110" y="295" fill="#70a1ff" font-family="monospace" font-size="14">[INFO] Handshake with Cloudflare Turnstile: BYPASSED (Status 200 OK)</text>
+  <text x="110" y="325" fill="#ffa502" font-family="monospace" font-size="14">[EXEC] Rotating 12 proxy profiles with randomized human timing...</text>
+  <text x="110" y="355" fill="#2ed573" font-family="monospace" font-size="14">[SUCCESS] Automated upvote/downvote action simulated cleanly.</text>
+  <text x="110" y="390" fill="#ffffff" font-family="monospace" font-size="14">[METRIC] Total API / Service Cost: $0.00 (Zero Overhead)</text>
+
+  <!-- Zero cost badge -->
+  <rect x="470" y="420" width="220" height="60" rx="8" fill="#ff5722"/>
+  <text x="580" y="458" fill="#ffffff" font-family="'Roboto', sans-serif" font-size="18" font-weight="700" text-anchor="middle">$0 API COST • ZERO EXPENSE</text>
+
+  <text x="80" y="90" fill="#ffffff" font-family="'Roboto', sans-serif" font-size="28" font-weight="700">Cloudflare-Bypass Quora Bot</text>
+  <text x="80" y="120" fill="#ff5722" font-family="'Roboto', sans-serif" font-size="15" font-weight="500">Autonomous Python Scripting &amp; Anti-Bot Stealth</text>
+</svg>

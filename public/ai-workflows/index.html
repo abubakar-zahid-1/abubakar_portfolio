@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Workflows & Automation Bots — Abubakar Z.</title>
+<link rel="preload" href="../fonts/onest-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800;900&display=swap">
+<script>
+  if (/[?&]embed\b/.test(location.search)) document.documentElement.classList.add('embed');
+  try { if (localStorage.getItem('rishi-mode') === 'dark') document.documentElement.dataset.mode = 'dark'; } catch(e){}
+  window.addEventListener('message', e => {
+    if (e.data && e.data.wall === 'mode') {
+      if (e.data.mode === 'dark') document.documentElement.dataset.mode = 'dark';
+      else delete document.documentElement.dataset.mode;
+    }
+  });
+</script>
+<style>
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(../fonts/onest-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+:root {
+  --font: 'Onest', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --bg: #f5f2ed;
+  --bg-rgb: 245, 242, 237;
+  --card-bg: rgba(255, 255, 255, 0.88);
+  --fg: #141312;
+  --fg-muted: #5e5954;
+  --line: rgba(20, 19, 18, 0.1);
+  --chip: rgba(255, 255, 255, 0.75);
+  --chip-line: rgba(20, 19, 18, 0.12);
+  --accent: #a855f7;
+  --door: #3b1e54;
+  --cord: #9b8c7b;
+  --clip: #d4a373;
+  --shadow: 0 20px 40px -15px rgba(0,0,0,0.08);
+}
+[data-mode="dark"] {
+  --bg: #09090b;
+  --bg-rgb: 9, 9, 11;
+  --card-bg: rgba(20, 20, 24, 0.85);
+  --fg: #f4f4f5;
+  --fg-muted: #a1a1aa;
+  --line: rgba(255, 255, 255, 0.1);
+  --chip: rgba(24, 24, 27, 0.75);
+  --chip-line: rgba(255, 255, 255, 0.14);
+  --cord: #4a4845;
+  --clip: #a67c52;
+  --shadow: 0 25px 50px -15px rgba(0,0,0,0.6);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.8rem;
+  background: rgba(var(--bg-rgb), 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background: var(--chip);
+  border: 1px solid var(--chip-line);
+  color: var(--fg);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.back-btn:hover {
+  transform: translateX(-3px);
+  background: var(--fg);
+  color: var(--bg);
+}
+.room-badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.hire-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 9999px;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.hire-btn:hover {
+  transform: scale(1.04);
+  opacity: 0.92;
+}
+.room-hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.8rem 2rem;
+  text-align: center;
+}
+.eyebrow {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+.room-title {
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.2rem;
+}
+.room-tagline {
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  color: var(--fg-muted);
+  max-width: 760px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.55;
+}
+.metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  max-width: 960px;
+  margin: 0 auto 3.5rem;
+}
+.stat-pill {
+  padding: 1.2rem 1.4rem;
+  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+.stat-num {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+.stat-lbl {
+  font-size: 0.82rem;
+  color: var(--fg-muted);
+  font-weight: 500;
+}
+.gallery-section {
+  position: relative;
+  padding: 4rem 1.5rem 5rem;
+  background: linear-gradient(180deg, transparent, rgba(var(--bg-rgb), 0.5) 20%, transparent);
+  overflow: hidden;
+}
+.gallery-lead {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.gallery-lead h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.gallery-lead p {
+  color: var(--fg-muted);
+  font-size: 0.95rem;
+}
+.gallery-track {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 40px;
+}
+.gallery-track::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 2%;
+  right: 2%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cord) 15%, var(--cord) 85%, transparent);
+  opacity: 0.5;
+}
+@keyframes sway {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate3d(var(--fx), var(--fy), 0) rotate(var(--fr));
+  }
+  66% {
+    transform: translate3d(calc(var(--fx) * -0.7), calc(var(--fy) * 0.6), 0) rotate(calc(var(--fr) * -0.6));
+  }
+}
+.hang-card {
+  position: relative;
+  width: 360px;
+  max-width: 100%;
+  animation: sway var(--fd, 12s) ease-in-out var(--fdl, 0s) infinite;
+  transform-origin: top center;
+  cursor: pointer;
+  outline: none;
+}
+.hang-card:hover {
+  animation-play-state: paused;
+  z-index: 10;
+}
+.hang-card:hover .hang-inner {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 60px -15px rgba(0,0,0,0.25);
+  border-color: var(--accent);
+}
+.hang-cord {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.hang-line {
+  width: 1.5px;
+  height: 100%;
+  background: var(--cord);
+  margin: 0 auto;
+}
+.hang-clip {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 12px;
+  background: var(--clip);
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+.hang-inner {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+.card-art {
+  position: relative;
+  height: 180px;
+  background: rgba(var(--bg-rgb), 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.card-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+.hang-card:hover .card-img {
+  transform: scale(1.12);
+}
+.card-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.65rem;
+  border-radius: 9999px;
+  background: var(--chip);
+  border: 1px solid var(--chip-line);
+  color: var(--fg);
+}
+.card-content {
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.card-title {
+  font-size: 1.28rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
+}
+.card-summary {
+  font-size: 0.88rem;
+  color: var(--fg-muted);
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+  flex: 1;
+}
+.card-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+.pill-metric {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  background: rgba(var(--bg-rgb), 0.7);
+  border: 1px solid var(--line);
+  color: var(--accent);
+}
+.card-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fg);
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--line);
+}
+.card-cta svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+.hang-card:hover .card-cta svg {
+  transform: translateX(4px);
+}
+.testimonial-section {
+  max-width: 860px;
+  margin: 3rem auto 5rem;
+  padding: 2.5rem;
+  border-radius: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.quote-icon {
+  font-size: 2.2rem;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.quote-text {
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 1.4rem;
+}
+.quote-author {
+  font-weight: 700;
+  font-size: 1rem;
+}
+.quote-role {
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+}
+.room-footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.8rem 4rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.door-jump-list {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.door-jump-lbl {
+  font-size: 0.82rem;
+  color: var(--fg-muted);
+  margin-right: 0.4rem;
+}
+.jump-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
+  background: var(--chip);
+  border: 1px solid var(--chip-line);
+  color: var(--fg);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.jump-link:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+.case-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.case-modal[hidden] {
+  display: none !important;
+}
+.case-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+}
+.case-sheet {
+  position: relative;
+  background: var(--bg);
+  color: var(--fg);
+  width: 760px;
+  max-width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 28px;
+  padding: 2.4rem;
+  border: 1px solid var(--line);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+  animation: sheetUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes sheetUp {
+  from { opacity: 0; transform: translateY(30px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.case-close {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--chip);
+  border: 1px solid var(--chip-line);
+  color: var(--fg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.case-chip {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+.case-title {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+}
+.case-lead {
+  font-size: 1.05rem;
+  color: var(--fg-muted);
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+.case-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 2.2rem;
+}
+.metric-box {
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+}
+.metric-val {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.case-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.2rem;
+}
+@media (max-width: 680px) {
+  .case-body-grid { grid-template-columns: 1fr; }
+}
+.col-head {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.7rem;
+  color: var(--fg);
+}
+.col-text {
+  font-size: 0.92rem;
+  color: var(--fg-muted);
+  line-height: 1.6;
+}
+.deliverables-list {
+  list-style: none;
+}
+.deliverables-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--fg-muted);
+  line-height: 1.45;
+  margin-bottom: 0.55rem;
+}
+.deliverables-list svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--accent);
+  margin-top: 2px;
+}
+.tools-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.tool-tag {
+  font-size: 0.78rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  background: var(--chip);
+  border: 1px solid var(--chip-line);
+  font-weight: 500;
+}
+.case-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--line);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.btn-hire {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 9999px;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 0.92rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+  <!-- Top Sticky Chrome -->
+  <header class="top-bar">
+    <a href="../#works" class="back-btn" onclick="if(window.parent && window.parent !== window){ event.preventDefault(); window.parent.postMessage({wall:'close'},'*'); }">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span>Back to doors</span>
+    </a>
+    <span class="room-badge">Door 03 · Intelligent Velocity</span>
+    
+      <button class="hire-btn" onclick="window.parent.postMessage({wall:'go',to:'contact'},'*')">
+        <span>Contact Abubakar</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    
+  </header>
+
+  <!-- Hero -->
+  <main>
+    <section class="room-hero">
+      <span class="eyebrow">Door 03 · Intelligent Velocity</span>
+      <h1 class="room-title">AI Workflows & Automation Bots</h1>
+      <p class="room-tagline">Engineering bespoke scraping bots, Cloudflare-bypassing engines, and LLM automation pipelines that eliminate operational overhead.</p>
+
+      <div class="metrics-strip">
+        
+          <div class="stat-pill">
+            <span class="stat-num">$0</span>
+            <span class="stat-lbl">API Cost with Custom Headless Bots</span>
+          </div>
+        
+          <div class="stat-pill">
+            <span class="stat-num">4x</span>
+            <span class="stat-lbl">Faster Content & Prospect Workflows</span>
+          </div>
+        
+          <div class="stat-pill">
+            <span class="stat-num">100%</span>
+            <span class="stat-lbl">Cloudflare Turnstile Bypass</span>
+          </div>
+        
+          <div class="stat-pill">
+            <span class="stat-num">500+</span>
+            <span class="stat-lbl">Prompts & Automation SOPs Created</span>
+          </div>
+        
+      </div>
+
+      
+    </section>
+
+    <!-- Hanging Cards Showcase -->
+    <section class="gallery-section">
+      <div class="gallery-lead">
+        <h3>Featured Architecture & Operations</h3>
+        <p>Interactive suspended project cards. Click any card to inspect full strategy & technical execution.</p>
+      </div>
+
+      <div class="gallery-track">
+        
+      <div class="hang-card" style="--fx:8.0px;--fy:10.0px;--fr:-1.8deg;--fd:11.0s;--fdl:0.0s;" data-card-id="quora-bot" tabindex="0" role="button" aria-label="View case study: Cloudflare-Bypass Multi-Account Bot">
+        <div class="hang-cord" aria-hidden="true">
+          <div class="hang-line"></div>
+          <div class="hang-clip"></div>
+        </div>
+        <div class="hang-inner">
+          <div class="card-art">
+            <img src="/assets/img/project-bot.svg" alt="" class="card-img" />
+            <div class="card-badge">Python Automation</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Cloudflare-Bypass Multi-Account Bot</h3>
+            <p class="card-summary">Engineered an intelligent automation system capable of multi-profile session management, automated upvoting, downvoting, and behavioral spoofing while bypassing Cloudflare bot protections at zero API cost.</p>
+            <div class="card-pills">
+              <span class="pill-metric">Zero API Spend</span><span class="pill-metric">100% Cloudflare Bypass Rate</span><span class="pill-metric">Autonomous 24/7 Multi-Profile Engine</span>
+            </div>
+            <div class="card-cta">
+              <span>Explore Details</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="hang-card" style="--fx:-12.0px;--fy:15.0px;--fr:2.2deg;--fd:13.5s;--fdl:-1.8s;" data-card-id="llm-content-engine" tabindex="0" role="button" aria-label="View case study: Autonomous LLM Marketing Workflow">
+        <div class="hang-cord" aria-hidden="true">
+          <div class="hang-line"></div>
+          <div class="hang-clip"></div>
+        </div>
+        <div class="hang-inner">
+          <div class="card-art">
+            <img src="/assets/img/project-ai.svg" alt="" class="card-img" />
+            <div class="card-badge">AI Prompt Engineering</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Autonomous LLM Marketing Workflow</h3>
+            <p class="card-summary">Designed custom multi-step prompt chains using Claude 3.7/3.5, GPT-4, and Gemini to automate content brief generation, competitor intelligence analysis, and personalized outreach drafts.</p>
+            <div class="card-pills">
+              <span class="pill-metric">4x Faster Brief Creation</span><span class="pill-metric">Consistent High-Converting Tone</span><span class="pill-metric">Comprehensive SERP Coverage</span>
+            </div>
+            <div class="card-cta">
+              <span>Explore Details</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="hang-card" style="--fx:16.0px;--fy:20.0px;--fr:-2.6deg;--fd:16.0s;--fdl:-3.6s;" data-card-id="data-scraping-enrichment" tabindex="0" role="button" aria-label="View case study: Automated Prospect Enrichment Pipeline">
+        <div class="hang-cord" aria-hidden="true">
+          <div class="hang-line"></div>
+          <div class="hang-clip"></div>
+        </div>
+        <div class="hang-inner">
+          <div class="card-art">
+            <img src="/assets/img/project-leadgen.svg" alt="" class="card-img" />
+            <div class="card-badge">Data Engineering</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Automated Prospect Enrichment Pipeline</h3>
+            <p class="card-summary">Automated the extraction, cleaning, and formatting of hundreds of business leads from public registries and professional networks.</p>
+            <div class="card-pills">
+              <span class="pill-metric">15+ Hours Saved Weekly</span><span class="pill-metric">99.5% Data Accuracy</span><span class="pill-metric">Automated Daily Syncs</span>
+            </div>
+            <div class="card-cta">
+              <span>Explore Details</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial-section">
+      <div class="quote-icon">“</div>
+      <blockquote class="quote-text">Abubakar combines technical digital marketing with innovative problem solving—from building custom automation tools to optimizing workflows. He is a tremendous asset to any growth team.</blockquote>
+      <div class="quote-author">Growth Director</div>
+      <div class="quote-role">East Hire</div>
+    </section>
+
+    <!-- Room Navigator Footer -->
+    <footer class="room-footer">
+      <div class="door-jump-list">
+        <span class="door-jump-lbl">Step into another door:</span>
+        <button class="jump-link" onclick="window.parent.postMessage({wall:'go',to:'door:0'},'*')">01 SEO Growth</button>
+        <button class="jump-link" onclick="window.parent.postMessage({wall:'go',to:'door:1'},'*')">02 B2B Leads</button>
+        <button class="jump-link" onclick="window.parent.postMessage({wall:'go',to:'door:2'},'*')">03 AI & Bots</button>
+        <button class="jump-link" onclick="window.parent.postMessage({wall:'go',to:'door:3'},'*')">04 Snake Game</button>
+        <button class="jump-link" onclick="window.parent.postMessage({wall:'go',to:'door:4'},'*')">05 WordPress</button>
+        <button class="jump-link" onclick="window.parent.postMessage({wall:'go',to:'door:5'},'*')">06 Quora Brand</button>
+      </div>
+      <div>
+        <button class="back-btn" onclick="window.parent.postMessage({wall:'close'},'*')">
+          <span>Return to Doors Wall ↑</span>
+        </button>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Detailed Modals -->
+  
+    <div class="case-modal" id="modal-quora-bot" role="dialog" aria-modal="true" aria-labelledby="title-quora-bot" hidden>
+      <div class="case-backdrop" data-close-modal></div>
+      <div class="case-sheet">
+        <button class="case-close" data-close-modal aria-label="Close modal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="case-header">
+          <span class="case-chip">Python Automation</span>
+          <h2 id="title-quora-bot" class="case-title">Cloudflare-Bypass Multi-Account Bot</h2>
+          <p class="case-lead">Engineered an intelligent automation system capable of multi-profile session management, automated upvoting, downvoting, and behavioral spoofing while bypassing Cloudflare bot protections at zero API cost.</p>
+        </div>
+        
+        <div class="case-metrics-grid">
+          
+            <div class="metric-box">
+              <span class="metric-val">Zero API Spend</span>
+            </div>
+          
+            <div class="metric-box">
+              <span class="metric-val">100% Cloudflare Bypass Rate</span>
+            </div>
+          
+            <div class="metric-box">
+              <span class="metric-val">Autonomous 24/7 Multi-Profile Engine</span>
+            </div>
+          
+        </div>
+
+        <div class="case-body-grid">
+          <div class="case-col">
+            <h4 class="col-head">The Context & Challenge</h4>
+            <p class="col-text">Commercial API costs were prohibitive and Cloudflare Bot Management repeatedly blocked standard automated browser scripts.</p>
+            <h4 class="col-head" style="margin-top:1.2rem">Strategy & Execution</h4>
+            <p class="col-text">Built a customized headless Python architecture using anti-detect browser footprints, human-like Bezier mouse curves, randomized sleep intervals, and cookie profile rotation.</p>
+          </div>
+          <div class="case-col">
+            <h4 class="col-head">Key Deliverables & Milestones</h4>
+            <ul class="deliverables-list">
+              <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Cloudflare Shield Bypass Core</li><li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Multi-Profile Cookie & Proxy Manager</li><li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Human-like Interaction & Delay Physics</li><li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Self-Healing Error Recovery Scripting</li>
+            </ul>
+            <h4 class="col-head" style="margin-top:1.2rem">Tools, Systems & Stack</h4>
+            <div class="tools-wrap">
+              <span class="tool-tag">Python</span><span class="tool-tag">Selenium / Playwright</span><span class="tool-tag">Anti-Detect Fingerprinting</span><span class="tool-tag">Session Spoofing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-footer">
+          
+            <p>Looking for similar leadership and operational results?</p>
+            <button class="btn-hire" onclick="window.parent.postMessage({wall:'go',to:'contact'},'*')">
+              Get in Touch with Abubakar
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="case-modal" id="modal-llm-content-engine" role="dialog" aria-modal="true" aria-labelledby="title-llm-content-engine" hidden>
+      <div class="case-backdrop" data-close-modal></div>
+      <div class="case-sheet">
+        <button class="case-close" data-close-modal aria-label="Close modal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="case-header">
+          <span class="case-chip">AI Prompt Engineering</span>
+          <h2 id="title-llm-content-engine" class="case-title">Autonomous LLM Marketing Workflow</h2>
+          <p class="case-lead">Designed custom multi-step prompt chains using Claude 3.7/3.5, GPT-4, and Gemini to automate content brief generation, competitor intelligence analysis, and personalized outreach drafts.</p>
+        </div>
+        
+        <div class="case-metrics-grid">
+          
+            <div class="metric-box">
+              <span class="metric-val">4x Faster Brief Creation</span>
+            </div>
+          
+            <div class="metric-box">
+              <span class="metric-val">Consistent High-Converting Tone</span>
+            </div>
+          
+            <div class="metric-box">
+              <span class="metric-val">Comprehensive SERP Coverage</span>
+            </div>
+          
+        </div>
+
+        <div class="case-body-grid">
+          <div class="case-col">
+            <h4 class="col-head">The Context & Challenge</h4>
+            <p class="col-text">Generic AI outputs sounded repetitive, hallucinated factual details, and lacked SEO intent.</p>
+            <h4 class="col-head" style="margin-top:1.2rem">Strategy & Execution</h4>
+            <p class="col-text">Built structured JSON prompt architectures with few-shot examples, SERP intent constraints, brand voice guidelines, and fact-checking safeguards.</p>
+          </div>
+          <div class="case-col">
+            <h4 class="col-head">Key Deliverables & Milestones</h4>
+            <ul class="deliverables-list">
+              <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Custom Prompt Templates for Outbound & SEO</li><li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> SERP Gap Analysis Automation Chains</li><li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> AI-Assisted Outreach Personalization SOPs</li>
+            </ul>
+            <h4 class="col-head" style="margin-top:1.2rem">Tools, Systems & Stack</h4>
+            <div class="tools-wrap">
+              <span class="tool-tag">Claude 3.7 / 3.5 Sonnet</span><span class="tool-tag">ChatGPT Plus</span><span class="tool-tag">Gemini Advanced</span><span class="tool-tag">System Prompts</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-footer">
+          
+            <p>Looking for similar leadership and operational results?</p>
+            <button class="btn-hire" onclick="window.parent.postMessage({wall:'go',to:'contact'},'*')">
+              Get in Touch with Abubakar
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="case-modal" id="modal-data-scraping-enrichment" role="dialog" aria-modal="true" aria-labelledby="title-data-scraping-enrichment" hidden>
+      <div class="case-backdrop" data-close-modal></div>
+      <div class="case-sheet">
+        <button class="case-close" data-close-modal aria-label="Close modal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="case-header">
+          <span class="case-chip">Data Engineering</span>
+          <h2 id="title-data-scraping-enrichment" class="case-title">Automated Prospect Enrichment Pipeline</h2>
+          <p class="case-lead">Automated the extraction, cleaning, and formatting of hundreds of business leads from public registries and professional networks.</p>
+        </div>
+        
+        <div class="case-metrics-grid">
+          
+            <div class="metric-box">
+              <span class="metric-val">15+ Hours Saved Weekly</span>
+            </div>
+          
+            <div class="metric-box">
+              <span class="metric-val">99.5% Data Accuracy</span>
+            </div>
+          
+            <div class="metric-box">
+              <span class="metric-val">Automated Daily Syncs</span>
+            </div>
+          
+        </div>
+
+        <div class="case-body-grid">
+          <div class="case-col">
+            <h4 class="col-head">The Context & Challenge</h4>
+            <p class="col-text">Manual copy-pasting of lead info took 15+ hours weekly.</p>
+            <h4 class="col-head" style="margin-top:1.2rem">Strategy & Execution</h4>
+            <p class="col-text">Python automation scripts that pull names, domains, and job titles, format them into CRM-ready CSVs, and check email validity.</p>
+          </div>
+          <div class="case-col">
+            <h4 class="col-head">Key Deliverables & Milestones</h4>
+            <ul class="deliverables-list">
+              <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Bespoke Web Scraper Scripts</li><li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Data Cleaning & Normalization Logic</li><li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Automated CRM Ingestion Formats</li>
+            </ul>
+            <h4 class="col-head" style="margin-top:1.2rem">Tools, Systems & Stack</h4>
+            <div class="tools-wrap">
+              <span class="tool-tag">Python</span><span class="tool-tag">Pandas</span><span class="tool-tag">BeautifulSoup</span><span class="tool-tag">CSV Automation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-footer">
+          
+            <p>Looking for similar leadership and operational results?</p>
+            <button class="btn-hire" onclick="window.parent.postMessage({wall:'go',to:'contact'},'*')">
+              Get in Touch with Abubakar
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          
+        </div>
+      </div>
+    </div>
+  
+
+  <script>
+    document.querySelectorAll('[data-card-id]').forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.getAttribute('data-card-id');
+        const modal = document.getElementById('modal-' + id);
+        if (modal) {
+          modal.hidden = false;
+          document.body.style.overflow = 'hidden';
+        }
+      });
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+
+    document.querySelectorAll('[data-close-modal]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.closest('.case-modal').hidden = true;
+        document.body.style.overflow = '';
+      });
+    });
+
+    window.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        const openModal = document.querySelector('.case-modal:not([hidden])');
+        if (openModal) {
+          openModal.hidden = true;
+          document.body.style.overflow = '';
+        } else {
+          window.parent?.postMessage({ wall: 'close' }, '*');
+        }
+      }
+    });
+  </script>
+</body>
+</html>

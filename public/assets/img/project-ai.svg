@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14101e"/>
+      <stop offset="100%" stop-color="#0a0810"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#aiGrad)"/>
+  
+  <!-- Neural / LLM Nodes -->
+  <circle cx="200" cy="300" r="45" fill="#251b3d" stroke="#ff5722" stroke-width="2"/>
+  <text x="200" y="306" fill="#ffffff" font-family="'Roboto', sans-serif" font-size="13" font-weight="600" text-anchor="middle">Input Data</text>
+
+  <circle cx="400" cy="220" r="50" fill="#2f1a4a" stroke="#d05ce3" stroke-width="2"/>
+  <text x="400" y="226" fill="#ffffff" font-family="'Roboto', sans-serif" font-size="13" font-weight="600" text-anchor="middle">Claude 3.7</text>
+
+  <circle cx="400" cy="380" r="50" fill="#1b2a4a" stroke="#00d2d3" stroke-width="2"/>
+  <text x="400" y="386" fill="#ffffff" font-family="'Roboto', sans-serif" font-size="13" font-weight="600" text-anchor="middle">GPT-4 / Gemini</text>
+
+  <circle cx="620" cy="300" r="55" fill="#1f382a" stroke="#00e676" stroke-width="2"/>
+  <text x="620" y="300" fill="#ffffff" font-family="'Roboto', sans-serif" font-size="13" font-weight="700" text-anchor="middle">High-Converting</text>
+  <text x="620" y="320" fill="#00e676" font-family="'Roboto', sans-serif" font-size="12" font-weight="600" text-anchor="middle">Campaign Brief</text>
+
+  <!-- Connecting lines -->
+  <line x1="245" y1="300" x2="350" y2="235" stroke="#ff5722" stroke-width="2" stroke-dasharray="6"/>
+  <line x1="245" y1="300" x2="350" y2="365" stroke="#ff5722" stroke-width="2" stroke-dasharray="6"/>
+  <line x1="450" y1="235" x2="565" y2="300" stroke="#d05ce3" stroke-width="2" stroke-dasharray="6"/>
+  <line x1="450" y1="365" x2="565" y2="300" stroke="#00d2d3" stroke-width="2" stroke-dasharray="6"/>
+
+  <text x="80" y="90" fill="#ffffff" font-family="'Roboto', sans-serif" font-size="28" font-weight="700">AI-Powered Marketing Workflows</text>
+  <text x="80" y="120" fill="#ff5722" font-family="'Roboto', sans-serif" font-size="15" font-weight="500">Autonomous Prompt Engineering &amp; High-Velocity Briefs</text>
+</svg>
