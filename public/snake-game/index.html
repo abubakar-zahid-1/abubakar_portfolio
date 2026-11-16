@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800;900&display=swap">
 <script>
   if (/[?&]embed\b/.test(location.search)) document.documentElement.classList.add('embed');
-  try { if (localStorage.getItem('rishi-mode') === 'dark') document.documentElement.dataset.mode = 'dark'; } catch(e){}
+  try { if (localStorage.getItem('az-theme-mode') === 'dark') document.documentElement.dataset.mode = 'dark'; } catch(e){}
   window.addEventListener('message', e => {
     if (e.data && e.data.wall === 'mode') {
       if (e.data.mode === 'dark') document.documentElement.dataset.mode = 'dark';
@@ -606,6 +606,11 @@ body {
   cursor: pointer;
 }
 </style>
+
+<link rel="canonical" href="https://abubakar-z-portfolio.netlify.app/snake-game/" />
+<meta property="og:url" content="https://abubakar-z-portfolio.netlify.app/snake-game/" />
+<meta property="og:image" content="https://abubakar-z-portfolio.netlify.app/og.jpg" />
+<meta name="twitter:image" content="https://abubakar-z-portfolio.netlify.app/og.jpg" />
 </head>
 <body>
 

@@ -968,25 +968,25 @@ body{margin:0}
 @media (max-width:767.98px){.totop{width:3rem;height:3rem}}
 @media (prefers-reduced-motion:reduce){.totop,.totop svg.ar{transition:opacity .2s ease,visibility 0s linear .2s}}
 </style>
-<script>try{if(localStorage.getItem('rishi-mode')==='dark'){document.documentElement.dataset.mode='dark';document.querySelector('meta[name=theme-color]')}}catch(e){}</script>
+<script>try{if(localStorage.getItem('az-theme-mode')==='dark'){document.documentElement.dataset.mode='dark';document.querySelector('meta[name=theme-color]')}}catch(e){}</script>
 <script>
 /* modest devices get the same site with the heaviest per-frame effects eased off */
 (function(){var n=navigator,m=n.deviceMemory||8,c=n.hardwareConcurrency||8,s=n.connection&&n.connection.saveData;
 if(m<=2||c<=2||s)document.documentElement.classList.add('lite');})();
 </script>
 
-<link rel="canonical" href="https://therishithakor.com/" />
+<link rel="canonical" href="https://abubakar-z-portfolio.netlify.app/" />
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
 <meta name="author" content="Abubakar Z. — Lead SEO & Organic Growth Strategist | B2B Lead Specialist" />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%231a1818'/%3E%3Ccircle cx='50' cy='50' r='46' fill='none' stroke='%23d4a373' stroke-width='3'/%3E%3Ctext x='50' y='63' font-family='sans-serif' font-size='42' font-weight='900' fill='%23d4a373' text-anchor='middle'%3EAZ%3C/text%3E%3C/svg%3E" />
-<meta property="og:type" content="profile" />
-<meta property="og:site_name" content="Abubakar Z. — Lead SEO & Organic Growth Strategist | B2B Lead Specialist" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abubakar Z. Portfolio" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="https://therishithakor.com/" />
+<meta property="og:url" content="https://abubakar-z-portfolio.netlify.app/" />
 <meta property="og:title" content="Abubakar Z. — Lead SEO & Organic Growth Strategist | B2B Lead Specialist" />
 <meta property="og:description" content="Lead SEO &amp; Organic Growth Strategist and B2B Lead Specialist. Driving organic search visibility, qualified leads, and digital growth." />
-<meta property="og:image" content="https://therishithakor.com/og.jpg?v=2" />
-<meta property="og:image:secure_url" content="https://therishithakor.com/og.jpg?v=2" />
+<meta property="og:image" content="https://abubakar-z-portfolio.netlify.app/og.jpg" />
+<meta property="og:image:secure_url" content="https://abubakar-z-portfolio.netlify.app/og.jpg" />
 <meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -994,17 +994,17 @@ if(m<=2||c<=2||s)document.documentElement.classList.add('lite');})();
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Abubakar Z. — Lead SEO & Organic Growth Strategist | B2B Lead Specialist" />
 <meta name="twitter:description" content="Lead SEO &amp; Organic Growth Strategist and B2B Lead Specialist. Driving organic search visibility, qualified leads, and digital growth." />
-<meta name="twitter:image" content="https://therishithakor.com/og.jpg?v=2" />
+<meta name="twitter:image" content="https://abubakar-z-portfolio.netlify.app/og.jpg" />
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Person",
-      "@id": "http://localhost:5000/#abubakar",
+      "@id": "https://abubakar-z-portfolio.netlify.app/#abubakar",
       "name": "Abubakar Z.",
-      "url": "http://localhost:5000/",
+      "url": "https://abubakar-z-portfolio.netlify.app/",
       "jobTitle": "Digital Marketing Executive, SEO Strategist, B2B Lead Gen & AI Architect",
-      "image": "/assets/img/abubakar_portrait.jpg",
+      "image": "https://abubakar-z-portfolio.netlify.app/assets/img/abubakar_portrait.jpg",
       "description": "Results-driven Digital Marketing Executive specializing in SEO, B2B lead generation, WordPress operations, and AI automation.",
       "knowsAbout": [
         "SEO & Organic Growth",
@@ -1026,7 +1026,7 @@ if(m<=2||c<=2||s)document.documentElement.classList.add('lite');})();
     }
   ]
 }</script>
-<meta name="google-site-verification" content="dB3k2roAkI1S8861shwLsjVKNyl1q-TjchYYJWrG-18" /><script>
+<script>
 // Safety failsafe: guarantees portfolio always unlocks within 2s even on slow networks or script interruptions
 setTimeout(function() {
   var ld = document.getElementById('loader');
@@ -1082,12 +1082,26 @@ setTimeout(function() {
       </ul>
     </nav>
     <div class="hdr__right">
-      <div class="chip clock" aria-label="Local time">
-        <span class="clock__lbl">Local time</span>
-        <span class="clock__time tnum" data-time>9:41am</span>
+      <div class="chip clock" aria-label="Local time (PKT)">
+        <span class="clock__lbl">Local time (PKT)</span>
+        <span class="clock__time tnum" data-time>--:--</span>
         <span class="clock__sep" aria-hidden="true">•</span>
-        <span class="clock__date" data-date>12 March, 2025</span><span class="clock__ds" data-dshort>12 Mar</span>
+        <span class="clock__date" data-date>--</span><span class="clock__ds" data-dshort>--</span>
       </div>
+      <script>
+      (function(){
+        try {
+          var d = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Karachi' }));
+          var m = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+          var h = d.getHours();
+          var t = (h % 12 || 12) + ':' + String(d.getMinutes()).padStart(2,'0') + (h < 12 ? 'am' : 'pm');
+          var dt = d.getDate() + ' ' + m[d.getMonth()] + ', ' + d.getFullYear();
+          var ds = d.getDate() + ' ' + m[d.getMonth()].slice(0,3);
+          var elT = document.querySelector('[data-time]'), elD = document.querySelector('[data-date]'), elDs = document.querySelector('[data-dshort]');
+          if(elT) elT.textContent = t; if(elD) elD.textContent = dt; if(elDs) elDs.textContent = ds;
+        } catch(e){}
+      })();
+      </script>
       <button class="chip menu-btn" id="menuBtn" style="min-height:44px;min-width:44px" aria-haspopup="dialog" aria-controls="navm" aria-label="Menu">
         <span data-h="s 1 1.05" data-hs="320 18" data-ht=".menu-btn"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span class="word">Menu</span></span>
       </button>
@@ -1736,16 +1750,27 @@ function bindHovers(scope = document){
 
 /* ---------- sticky header: gets a soft backing once the page scrolls ---------- */
 { const hdr = $('.hdr'); const upd = () => hdr.classList.toggle('stuck', scrollY > 24); addEventListener('scroll', upd, { passive: true }); upd(); }
-/* ---------- live clock ---------- */
+/* ---------- live clock (Asia/Karachi, PKT) ---------- */
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 function tickClock(){
-  const d = new Date(), h = d.getHours();
-  const time = `${h % 12 || 12}:${String(d.getMinutes()).padStart(2,'0')}${h < 12 ? 'am' : 'pm'}`;
-  const date = `${d.getDate()} ${MONTHS[d.getMonth()]}, ${d.getFullYear()}`;
-  document.querySelectorAll('[data-time]').forEach(e => e.textContent = time);
-  document.querySelectorAll('[data-date]').forEach(e => e.textContent = date);
-  document.querySelectorAll('[data-dshort]').forEach(e => e.textContent = `${d.getDate()} ${MONTHS[d.getMonth()].slice(0, 3)}`);
-  document.querySelectorAll('[data-navtime]').forEach(e => e.textContent = ' — ' + time);
+  try {
+    const d = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Karachi' }));
+    const h = d.getHours();
+    const time = `${h % 12 || 12}:${String(d.getMinutes()).padStart(2,'0')}${h < 12 ? 'am' : 'pm'}`;
+    const date = `${d.getDate()} ${MONTHS[d.getMonth()]}, ${d.getFullYear()}`;
+    document.querySelectorAll('[data-time]').forEach(e => e.textContent = time);
+    document.querySelectorAll('[data-date]').forEach(e => e.textContent = date);
+    document.querySelectorAll('[data-dshort]').forEach(e => e.textContent = `${d.getDate()} ${MONTHS[d.getMonth()].slice(0, 3)}`);
+    document.querySelectorAll('[data-navtime]').forEach(e => e.textContent = ' — ' + time);
+  } catch(err) {
+    const d = new Date();
+    const h = d.getHours();
+    const time = `${h % 12 || 12}:${String(d.getMinutes()).padStart(2,'0')}${h < 12 ? 'am' : 'pm'}`;
+    const date = `${d.getDate()} ${MONTHS[d.getMonth()]}, ${d.getFullYear()}`;
+    document.querySelectorAll('[data-time]').forEach(e => e.textContent = time);
+    document.querySelectorAll('[data-date]').forEach(e => e.textContent = date);
+    document.querySelectorAll('[data-dshort]').forEach(e => e.textContent = `${d.getDate()} ${MONTHS[d.getMonth()].slice(0, 3)}`);
+  }
 }
 tickClock(); setInterval(tickClock, 1000);
 
@@ -2082,7 +2107,7 @@ if (matchMedia('(max-width: 1023.98px), (hover: none)').matches){
 } else liquidReveal($('#fig'), $('#figCanvas'), COLOUR_SRC);
 
 /* ---------- Mode (light / dark) ---------- */
-const MODE_KEY = 'rishi-mode';
+const MODE_KEY = 'az-theme-mode';
 const themeMeta = document.querySelector('meta[name="theme-color"]');
 let modeAnimT = 0;
 function getMode(){ return root.dataset.mode === 'dark' ? 'dark' : 'light'; }
@@ -3224,7 +3249,7 @@ try {
 <div class="ck" id="ck" role="region" aria-label="Analytics choice" hidden><p>May I count your visit with Google Analytics? It sets cookies. <a href="/legal/">Details</a></p><div><button type="button" data-ck="no">No thanks</button><button type="button" data-ck="yes">Allow</button></div></div>
 <script>
 (() => {
-  const ID = 'G-12PNLHKGHK', K = 'rishi-analytics';
+  const ID = '', K = 'az-analytics';
   let v = null; try { v = localStorage.getItem(K); } catch (e) {}
   const load = () => {
     window.dataLayer = window.dataLayer || [];
