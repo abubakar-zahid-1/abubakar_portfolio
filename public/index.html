@@ -3235,38 +3235,7 @@ try {
 </script>
 
 
-<style>
-.ck{position:fixed;left:50%;bottom:max(1rem,env(safe-area-inset-bottom));z-index:90;transform:translateX(-50%);width:min(34rem,calc(100% - 2rem));
-  display:flex;align-items:center;gap:1rem;padding:.9rem .9rem .9rem 1.2rem;border-radius:1.25rem;background:#1A1818;color:#E8E4E0;
-  box-shadow:0 18px 40px -16px rgba(0,0,0,.55),0 0 0 1px rgba(232,228,224,.12);font:400 .875rem/1.45 'Onest',ui-sans-serif,system-ui,sans-serif}
-.ck[hidden]{display:none}
-.ck p{margin:0;flex:1}.ck a{color:inherit}
-.ck div{display:flex;gap:.5rem;flex:none}
-.ck button{height:2.5rem;padding:0 1rem;border-radius:999px;border:1px solid rgba(232,228,224,.25);background:none;color:inherit;font:inherit;font-size:.8125rem;font-weight:600;line-height:1;cursor:pointer}
-.ck button[data-ck="yes"]{background:#E8E4E0;color:#1A1818;border-color:transparent}
-@media (max-width:539.98px){.ck{flex-direction:column;align-items:stretch}.ck div button{flex:1}}
-</style>
-<div class="ck" id="ck" role="region" aria-label="Analytics choice" hidden><p>May I count your visit with Google Analytics? It sets cookies. <a href="/legal/">Details</a></p><div><button type="button" data-ck="no">No thanks</button><button type="button" data-ck="yes">Allow</button></div></div>
-<script>
-(() => {
-  const ID = '', K = 'az-analytics';
-  let v = null; try { v = localStorage.getItem(K); } catch (e) {}
-  const load = () => {
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function(){ dataLayer.push(arguments); };
-    gtag('js', new Date()); gtag('config', ID);
-    const s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID; document.head.appendChild(s);
-  };
-  if (v === 'yes') return load();
-  if (v === 'no') return;
-  const b = document.getElementById('ck'); b.hidden = false;
-  b.addEventListener('click', e => {
-    const c = e.target.closest('[data-ck]'); if (!c) return;
-    try { localStorage.setItem(K, c.dataset.ck); } catch (e) {}
-    b.hidden = true; if (c.dataset.ck === 'yes') load();
-  });
-})();
-</script>
+
 
 <!-- ============ Resume Preview Modal ============ -->
 <div class="modal" id="resumeModal" role="dialog" aria-modal="true" aria-labelledby="rmTitle" hidden>

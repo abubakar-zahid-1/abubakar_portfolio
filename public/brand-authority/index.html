@@ -800,20 +800,27 @@ body {
           <video
             controls
             playsinline
-            preload="metadata"
+            preload="auto"
             poster="../assets/video/quora-bot-poster.jpg"
-            src="../assets/video/quora-bot-demo.mp4"
-            aria-label="QuoraBot Pro live automation walkthrough video"
+            aria-label="QuoraBot Pro live automation walkthrough video (2m 15s)"
           >
+            <source src="../assets/video/quora-bot-demo.mp4" type="video/mp4" />
             <track
               kind="subtitles"
               src="../assets/video/quora-bot-demo.vtt"
               srclang="en"
               label="English Subtitles"
               default
-            >
+            />
             Your browser does not support the video tag.
           </video>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; padding: 0 0.5rem; font-size: 0.82rem; color: var(--fg-muted);">
+          <span>⏱ Duration: <strong>2m 15s</strong> • 720p HD • Fast Web Streaming</span>
+          <a href="../assets/video/quora-bot-demo.mp4" download="QuoraBot_Pro_Walkthrough.mp4" style="display: inline-flex; align-items: center; gap: 0.4rem; color: #e11d48; font-weight: 600; text-decoration: none;">
+            <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Video (MP4)
+          </a>
         </div>
 
         <div class="video-tech-pills">
