@@ -8,7 +8,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800;900&display=swap">
 <script>
   if (/[?&]embed\b/.test(location.search)) document.documentElement.classList.add('embed');
-  try { if (localStorage.getItem('az-theme-mode') === 'dark') document.documentElement.dataset.mode = 'dark'; } catch(e){}
+  try {
+    localStorage.removeItem('az-analytics');
+    localStorage.removeItem('rishi-analytics');
+    localStorage.removeItem('cookie-consent');
+    if (localStorage.getItem('az-theme-mode') === 'dark') document.documentElement.dataset.mode = 'dark';
+  } catch(e){}
   window.addEventListener('message', e => {
     if (e.data && e.data.wall === 'mode') {
       if (e.data.mode === 'dark') document.documentElement.dataset.mode = 'dark';
